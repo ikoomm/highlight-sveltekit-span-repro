@@ -43,3 +43,19 @@ Verified SvelteKit 2 dev-server runtime. Adapter-node is configured but producti
 `candidate.patch` changes only the error reporting call in the original PR's guide: create a dedicated span, then pass it to `H.consumeError`. The helper ends the explicit error span while `H.runWithHeaders` owns the request span lifetime.
 
 This fixture supports a technical review of the existing PR. It makes no bounty claim.
+
+## Follow-up: incoming trace context
+
+PR commit `b6d0456c61eaa400076f99bfcdfe57874736ce98` adopts the dedicated error span and fixes the premature request-span ending. Its error handler passes the original request headers into `H.startWithHeaders`.
+
+The additional SDK-only check isolates the effect of a valid incoming W3C `traceparent`:
+
+```sh
+node review-parent-context-20261017.mjs
+```
+
+On Highlight Node 3.12.22, passing the original carrier makes the error span a sibling of the active request span under the incoming parent. Passing `{}` keeps the error span a child of the active request. Both retain the same trace ID, the exception, and HTTP status 500; the main lifetime fix still works.
+
+The SDK extracts context from the supplied headers before starting the span. Use `H.startWithHeaders('sveltekit.error', {})` inside the active request context; session identifiers can still be parsed separately from the request headers.
+
+`review-parent-context-20261017.result.json` records the local check at 2026-10-17T03:51:24Z. All identifiers and errors are synthetic; exporters target a loopback receiver. This is an isolated SDK check, not a new SvelteKit, production-adapter, or full documentation-build validation. It does not change the scope of the original runtime results above.

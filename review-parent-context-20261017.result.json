@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-10-17T03:51:24.245Z",
+  "sdk": "3.12.22",
+  "scope": "Isolated installed SDK reproduction; no SvelteKit runtime rerun",
+  "requestObservations": [
+    {
+      "mode": "headers",
+      "requestStillRecording": true
+    },
+    {
+      "mode": "empty",
+      "requestStillRecording": true
+    }
+  ],
+  "results": [
+    {
+      "mode": "headers",
+      "requestSpanId": "2741e3be77f13d07",
+      "requestParent": "2222222222222222",
+      "errorParent": "2222222222222222",
+      "errorIsRequestChild": false,
+      "errorSharesTrace": true,
+      "requestStatus": {
+        "intValue": 500
+      },
+      "exceptionRecorded": true
+    },
+    {
+      "mode": "empty",
+      "requestSpanId": "4ad811dbb0027ed3",
+      "requestParent": "2222222222222222",
+      "errorParent": "4ad811dbb0027ed3",
+      "errorIsRequestChild": true,
+      "errorSharesTrace": true,
+      "requestStatus": {
+        "intValue": 500
+      },
+      "exceptionRecorded": true
+    }
+  ]
+}
