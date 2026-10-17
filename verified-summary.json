@@ -1,0 +1,21 @@
+{
+  "observedAt": "2026-10-17T02:10:09.026Z",
+  "node": "v24.18.0",
+  "sdk": "3.12.22",
+  "svelteKit": "2.70.3",
+  "runtime": "Vite dev server; not production adapter",
+  "reproduced": true,
+  "originalErrorRequestAttributes": {
+    "highlight.session_id": "local-session"
+  },
+  "correctedErrorRequestAttributes": {
+    "highlight.session_id": "local-session",
+    "http.request.method": "GET",
+    "http.route": "/error",
+    "http.response.status_code": 500
+  },
+  "dedicatedErrorChildVerified": true,
+  "realSvelteKitRoutes": true,
+  "tcpGuardRejectedExternalConnections": 0,
+  "telemetryEndpointScope": "Loopback only; not an OS-level egress sandbox"
+}

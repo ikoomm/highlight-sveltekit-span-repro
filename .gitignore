@@ -1,0 +1,10 @@
+node_modules/
+.svelte-kit/
+build/
+results/
+*.log
+PAUSED_CHECKPOINT_20261017.json
+PR10632_REVIEW_COMMENT.md
+PUBLIC_FILES.json
+EXECUTION_EVIDENCE.json
+graphify-out/

@@ -1,0 +1,20 @@
+Fixture attribution
+
+The hooks examples in hooks.original.ts, hooks.corrected.ts and src/hooks.server.ts are adapted from dongwei-polyred's Highlight pull request #10632:
+https://github.com/highlight/highlight/pull/10632
+Pinned source commit: 8361e60ada10ec63065f6f851b65f2eafcf19dc1
+Original source: highlight.io/components/QuickstartContent/server/js/sveltekit.tsx
+https://github.com/highlight/highlight/blob/8361e60ada10ec63065f6f851b65f2eafcf19dc1/highlight.io/components/QuickstartContent/server/js/sveltekit.tsx
+
+Copyright 2020-present Highlight Inc.
+The highlight.io directory is licensed under Apache License 2.0:
+https://github.com/highlight/highlight/blob/79c3ea3a15faad5c05e8f664d53924dca2a2907e/highlight.io/LICENSE
+A copy is included in LICENSE.
+
+Changes for this reproduction (2026-10-17):
+- Extracted executable hooks from the TSX documentation snippets; combined imports/init.
+- Used a synthetic project/session and loopback OTLP endpoint; disabled console recording.
+- Adjusted whitespace and condensed the building guard; no instrumentation logic changes in original mode.
+- Corrected mode creates a dedicated error span and passes it to consumeError.
+- Added independent HTTP/OTLP test harness and success/failure routes.
+Original guide authorship is not claimed by this reproduction.

@@ -1,0 +1,12 @@
+--- a/highlight.io/components/QuickstartContent/server/js/sveltekit.tsx
++++ b/highlight.io/components/QuickstartContent/server/js/sveltekit.tsx
+@@ -125,7 +125,8 @@
+ 		const { secureSessionId, requestId } = H.parseHeaders(
+ 			highlightHeaders(event.request),
+ 		)
+-		H.consumeError(error as Error, secureSessionId, requestId)
++		const { span } = H.startWithHeaders('sveltekit.error', {})
++		H.consumeError(error as Error, secureSessionId, requestId, undefined, { span })
+ 	}
+ 	return { message }
+ }`,
